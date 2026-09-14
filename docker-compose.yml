@@ -1,0 +1,18 @@
+# Local Postgres for offline dev, so Neon isn't required to develop.
+# Point DATABASE_URL / DIRECT_DATABASE_URL / DATABASE_URL_ALEMBIC at this
+# instead of Neon while working offline:
+#   postgresql://postgres:postgres@localhost:5432/bridgeofhope
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bridgeofhope
+    ports:
+      - "5432:5432"
+    volumes:
+      - boh_pg_data:/var/lib/postgresql/data
+
+volumes:
+  boh_pg_data:

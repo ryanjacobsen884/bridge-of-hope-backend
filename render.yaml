@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: bridge-of-hope-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: BACKEND_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_DATABASE_URL
+        sync: false
+      - key: DATABASE_URL_ALEMBIC
+        sync: false
+      - key: TEST_PROVIDER_ENABLED
+        value: "true"
+      - key: STRIPE_ENABLED
+        value: "false"
+      - key: PAYPAL_ENABLED
+        value: "false"
+      - key: MPESA_ENABLED
+        value: "false"
+      - key: BTC_ENABLED
+        value: "false"
+      - key: EMAIL_PROVIDER
+        value: console
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
